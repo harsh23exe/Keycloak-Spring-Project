@@ -20,8 +20,8 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests()
-                .requestMatchers(HttpMethod.GET, "/test/anonymous", "/test/anonymous/**").permitAll()
-                .anyRequest().authenticated();
+                .requestMatchers(HttpMethod.GET, "/test/user", "/test/user/**").authenticated()
+                .anyRequest().permitAll();
         http.oauth2ResourceServer(server -> server
                 .jwt()
                 .jwtAuthenticationConverter(jwtAuthConverter));
