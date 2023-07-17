@@ -26,6 +26,7 @@ public class SecurityConfig {
                 .jwt()
                 .jwtAuthenticationConverter(jwtAuthConverter));
         http.sessionManagement(management -> management.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
+         http.csrf().disable();
         return http.build();
     }
 
